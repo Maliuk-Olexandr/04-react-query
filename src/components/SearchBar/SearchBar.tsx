@@ -2,26 +2,26 @@ import styles from './SearchBar.module.css';
 import toast from 'react-hot-toast';
 import {Formik,Form,Field, type FormikHelpers} from 'formik';
 
-interface SearchBarProps {
-  onSubmit: (query: string) => void;
-}
-interface SearchBarState {
-  query: string;
-}
+interface SearchBarProps { onSubmit: (query: string) => void; }
+interface SearchBarState { query: string; }
+
 const initialValues: SearchBarState = { query: '' };
 
 export default function SearchBar({ onSubmit }: SearchBarProps) {
   const handleSubmit = (values: SearchBarState, actions: FormikHelpers<SearchBarState>) => {
+
     const query = values.query.trim();
 
     if (query === '') {
       toast.error('Please enter your search query.');
       return;
     }
+
     onSubmit(query);
     actions.resetForm();
     actions.setSubmitting(false);
   };
+  
   return (
     <header className={styles.header}>
       <div className={styles.container}>

@@ -27,7 +27,6 @@ export default function App() {
    }
  );
 
-
   function handleSearch(query: string) {
     setQuery(query);
     setPage(1);
@@ -47,13 +46,7 @@ export default function App() {
     <div className={styles.app}>
       <Toaster position="top-center" reverseOrder={false} />
       <SearchBar onSubmit={handleSearch} />
-      {isSuccess && totalPages > 1 && (
-        <Paginate
-          pageCount={totalPages}
-          onPageChange={({ selected }) => setPage(selected + 1)}
-          forcePage={page - 1}
-        />
-      )}
+      {isSuccess && totalPages > 1 && ( <Paginate pageCount={totalPages} onPageChange={({ selected }) => setPage(selected + 1)} forcePage={page - 1} />)}
       {isLoading && <Loader />}
       {!isLoading && isError && <ErrorMessage />}
       {!isLoading && !isError && data?.results.length === 0 && <NoMovieFound />}
