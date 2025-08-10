@@ -1,0 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  color: var(--text-main-color);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+}
+a,
+button,
+svg,
+input,
+input::placeholder,
+textarea,
+textarea::placeholder,
+select,
+select::placeholder {
+  transition-duration: 250ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
