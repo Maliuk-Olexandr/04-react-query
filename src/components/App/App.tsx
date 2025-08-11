@@ -1,6 +1,6 @@
 import styles from './App.module.css';
 import { useState } from 'react';
-import type { Movie,FetchingMovieService } from '../../types/movie';
+import type { Movie } from '../../types/movie';
 import { Toaster } from 'react-hot-toast';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 
@@ -18,7 +18,7 @@ export default function App() {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState<number>(1);
 
- const { data, isError, isLoading, isSuccess } = useQuery<FetchingMovieService>(
+ const { data, isError, isLoading, isSuccess } = useQuery(
    {
      queryKey: ['movies', query, page],
      queryFn: () => fetchMovies(query, page),

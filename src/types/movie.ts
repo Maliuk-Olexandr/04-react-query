@@ -7,9 +7,3 @@ export interface Movie {
   release_date: string;
   vote_average: number;
 }
-export interface FetchingMovieService {
-  page: number;
-  total_results: number;
-  total_pages: number;
-  results: Movie[];
-}
